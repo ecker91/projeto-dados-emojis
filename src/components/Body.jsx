@@ -6,14 +6,18 @@ const Body = () => {
   const [lista, setLista] = useState([]);
 
   const useEmoji = () => {
-    let tempEmoji = [...emojis];
-    let comprimento = tempEmoji.length;
-    let random = Math.floor(Math.random() * comprimento);
-    let emojiSorteado = tempEmoji.splice(random, 1);
-    let tempLista = [...lista];
-    tempLista.push(emojiSorteado[0]);
-    setLista(tempLista);
-    setEmojis(tempEmoji);
+    if(emojis.length > 0){
+      let tempEmoji = [...emojis];
+      let comprimento = tempEmoji.length;
+      let random = Math.floor(Math.random() * comprimento);
+      let emojiSorteado = tempEmoji.splice(random, 1);
+      let tempLista = [...lista];
+      tempLista.push(emojiSorteado[0]);
+      setLista(tempLista);
+      setEmojis(tempEmoji);
+    }else{
+      alert('Fim da lista!')
+    }
   };
 
   return (
